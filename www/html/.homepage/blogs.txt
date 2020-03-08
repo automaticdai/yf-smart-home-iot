@@ -1,0 +1,5 @@
+# Blogs
+
+- March 31, 2014: [The Limitations of Classical PID Controller and Its Advanced Derivations](blog_classic_control.html)
+- April 13, 2015: [Hard real-time v.s. soft real-time systems](blog_hard_soft_real_time.html)
+

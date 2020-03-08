@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Web Template for Scientists" />
+<meta name="keywords" content="web page template webpage latex in html writing equations
+table of content automatic reference references formatting markdown
+code highlighting scientific documantation pyhat code2html linux
+command line text based course page design scientists science" />
+<meta name="author" content="Arman Akbarian" />
+<link rel="stylesheet" type="text/css" href="pagestyle.css" />
+<title>Hard real-time and soft real-time systems</title>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+$(function() {
+		$('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+			$('html,body').animate({
+scrollTop: target.offset().top
+}, 500);
+			return false;
+			}
+			}
+			});
+		});
+
+</script>
+
+
+</head>
+
+<body>
+<div class="page">
+  <div class="page2">
+     <div style="width:100%;height:1px;font-family: Tahoma; font-size: 1pt;"></div>
+     <div  class ="header">
+		
+	     <div class="title">
+
+			Xiaotian Dai
+			<div class="subtitle">UNIVERSITY OF YORK <br> COMPUTER SCIENCE DEPT. </div>
+	</div> <!-- End of title -->
+		<div class="sidebar">
+         	<div class="sider">
+               <p><a href="index.html">Home <img src="img/home.svg" width="11px" /></a>
+<a href="research.html">Research</a>
+<a href="publication.html">Publications</a>
+<a target="_blank" href="https://www.cs.york.ac.uk/rts/">RTS Group <img style="margin-left:1px;" src="img/external-link.svg" alt="" align="bottom" /></a>
+<a href="contact.html">Contact</a>
+<a href="cv.html">CV</a></p>
+
+<hr />
+
+<p><a href="blogs.html">BLOGS</a>
+<a href="projs.html">PROJECTS</a>
+<a href="wiki.html">WIKI</a>
+<a href="about.html">ABOUT</a></p>
+
+             </div>
+         </div> <!--End of Sidebar -->
+
+
+     </div> <!-- end header -->
+	
+     <!--This line is for future use -->   <div style="text-align:center; padding-top:10px; padding-bottom:10px;"></div>
+	      
+     <!--This line is for compatibility issues --> <div style="width:100%;height:5px;font-family: Tahoma; font-size: 1pt;"></div>
+     <!--in class page2 -->
+     <div class="postandside">
+		        <div class="content">
+            <div class="post">
+              <h1>Hard real-time and soft real-time systems</h1>
+
+<p>When you study your first lecture in Embedded Systems, you will definitely hear the term ‘hard’ real-time and ‘soft’ real-time. Systems such as avionic systems, automobile engine control systems and cardiac pacemakers could be included in the category of hard real-time systems, while web servers, human-machine interfaces and multimedia systems are soft real-time systems. By intuition, we can infer that these hard real-time systems are more critical and important than the soft ones. But what is the really distinction between them?</p>
+
+<p>To answer this question, we should first introduce the notion of ‘<strong>timing requirements</strong>‘. Timing requirements, which is also known as timing constraints, are metrics that specify the temporal behaviors of tasks during run-time. Two most important parameters when defining timing requirements are the response time (\( R_i \)) and the deadline (\( D_i \)). The deadline of a task is the time instant by which the task should be completed and the response time is the execution time between the release and the completion of the task.</p>
+
+<p>Now we can give a formal definition of hard real-time: <strong>a hard real-time system is a system where all tasks in that system should be completed before their own pre-defined deadlines, i.e., \( R_i &lt;= D_i \). Any failure to meet the deadline could possibly lead to disastrous consequence, e.g., chemical leakage, airplane crash or life risk.</strong> <sup><a href="#refref_jane1" id="cntref_jane1">[1]</a></sup></p>
+
+<p>When it comes to soft real-time systems, the deadline could be missed occasionally with the only consequence that the <strong>usefulness of the result could be degraded</strong>. Take the MP3 player system as an example, the failure of delivering the audio steam in time will only cause some annoying lags, but will not do any harm to the person who is listening to it.</p>
+
+<p>Since hard real-time systems require a high level of predictability, the specification is often given in a <strong>deterministic</strong> way. On the other hand, the timing specification of a soft real-time system is often defined in a <strong>probabilistic</strong> form, e.g., the probabilistic of deadline misses in every 5 minutes is less than 1%.</p>
+
+<p>The high requirement of temporal behavior of hard real-time systems poses a great challenge in designing such systems. Many restrictions should be imposed on the design of the software, as well as the hardware architecture. Formal methods should also be used to prove the system could work properly under any possible conditions without any deadline miss.</p>
+
+<p>In reality, not all systems can be identified as either soft or hard real-time systems. In these circumstances, the system can be separated into the hard part and the soft part sub-systems and be designed and verified separately, in order to meet their own specifications.</p>
+
+<p></p>
+
+<p>
+
+</p>
+<hr /><h2>References</h2><p><a href="#cntref_jane1" id="refref_jane1">[1]</a>: Jane W. S. Liu, Real-time Systems, Prentice Hall, 2000, page 26-33 </p>
+
+		      <div style="clear: both;"></div>
+	         </div>
+		      <hr />
+	         <div class ="date">last update: Mon Apr 25, 2016</div>
+	    <div class="footer">
+           <p>| <a href="index.html">Home</a> | Copyright  (C) 2016 Xiaotian Dai. | This Website is powered by Markdown, MathJax and Apache. | <a href="../../cgi-bin/info.py">Status</a> | </p>
+
+      </div>  
+	    <div style="clear: both;">&nbsp;</div>
+        </div> <!-- end content -->
+	<!-- in class postandside -->
+
+                 <!--in class postandside-->   
+         <!--this line is for compatibility issues --><div style="clear: both;">&#160;</div> <!--Displacement --> 
+     </div> <!--End of post and side -->
+
+     <!-- in class page2 -->
+     <div style="clear: both;">&nbsp;</div>
+  </div> <!--End of Page2 -->
+     <div style="clear: both;">&nbsp;</div>
+
+</div> <!-- End of page -->
+<!--this is end of the file -->
+<!-- ~~~ This content is generated using sg web template ~~-->
+<!-- ~~~ For more information visit: http://laplace.physics.ubc.ca/People/arman/sg ~~ -->
+</body>
+</html>

@@ -1,0 +1,32 @@
+# MySQL Basic Commands
+
+## Command line usage
+`> mysql -u root -p` Login as root.
+
+`msql> SHOW DATABASES;`
+
+`msql> CREATE DATABASE 'database_name';`
+
+`msql> DROP DATABASE 'database_name';`
+
+`msql> SHOW TABLES;`
+
+`msql> DESCRIBE 'table_name';`
+
+`mysql> SELECT * FROM 'table_name';`
+
+`msql> quit`
+
+
+## Insert data
+The first form does not specify the column names where the data will be inserted, only their values:
+
+	INSERT INTO table_name
+	VALUES (value1,value2,value3,...);
+
+The second specifies both the column and value names:
+
+	INSERT INTO table_name (column1,column2,column3,...)
+	VALUES (value1,value2,value3,...);
+
+## Select data

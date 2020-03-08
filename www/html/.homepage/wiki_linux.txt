@@ -1,0 +1,313 @@
+# Linux Command Cheat Sheet
+This is a quick reference of some of the Linux commands.
+***
+[TOC]
+
+## System Management
+`which 'program'` 	Show the directory of the program (e.g., which python).
+
+`ldd 'program'`		Print shared object dependencies.
+
+`time 'program'` 	Show the real/user/system time used by the program.
+
+`crontab -l`		Planing tasks management.
+
+`history`			Show command history.
+
+`last` 				Last login status.
+
+`rpm -qa`			Check all installed packages.
+
+`rpm -iVh`			Install rpm package.
+
+`uname -a` 			Print kernel release and your machine hardware name
+
+`shutdown -r now` 	Restart the computer now. 
+ 
+`shutdown -h now` 	Shutdown the computer now.
+
+`date -s "2 OCT 2016 18:30:45"` Change system time and date.
+
+`date +%Y%m%d -s "20081128"` Change date only.
+
+`date +%T -s "10:13:13"` Change time only
+
+## Systemd (CentOS7 / RHEL7)
+`chkconfig --list` 	 
+
+### systemctl
+`systemctl list-units --type=service --all` List all system services
+
+`systemctl start | stop | restart 'name.service'`
+
+`systemctl enable | disable 'name.service'`
+
+### timedatectl
+`timedatectl set-time 'YYYY-MM-DD HH:MM:SS'`
+
+`timedatectl list-timezones`
+
+`timedatectl set-timezone 'Asia/Kolkata'`
+
+`timedatectl set-ntp yes`
+
+## User Management
+`w` The w command display who is logged into the Linux and Unix-like server, and what they are doing at command execution time.
+
+`whoami` Show the current user.
+
+`useradd` Add a new user.
+
+`userdel 'user_name'` Delete a user from the system.	
+
+`passwd 'user_name'` Set the password of a user.
+
+`cut -d: -f1 /etc/passwd` Show all the users
+
+`cut -d: -f1 /etc/group` Show all work groups.
+
+
+## Tasks
+`top` Show the CPU usage and currently active processes.
+
+`ps -A`	Show all running tasks  
+
+`ps -aux` Show all running tasks with expanded information.
+
+`fg` Move the last running process from background to foreground.
+		
+`kill 'task_pid'` Kill the task with pid *task_pid*
+
+
+## Disk and Memory
+`free -h` Show (human-readable) currently used and free memory.
+
+`df -h` Displays information about the total disk space, the disk space 
+currently in use, and the free space on all the mounted drives.
+
+`df -ih` Display information of inode usage.
+
+`du -h` Displays information of the size occupied by directories.
+
+`du -sh .` Displays information of disk free (summary). 
+
+`quota -u 'username'` Show the disk quota of ‘username’.
+
+`fdisk -l` List partition table
+
+`mount | column -t` Mounted partitions. 
+
+
+## Network
+`ping` 
+
+`ifconfig`
+
+`nslookup`
+
+`route -n` Show routing table
+
+`netstat -lntp` Listening ports
+
+`netstat -antp` Established connections
+
+`netstat -s` Network status
+
+
+## File and Directory
+### cd
+`cd`				Change current working directory. 
+ 
+`cd ~`				Change to ‘home’ directory.  
+
+`cd /`				Change to the root directory.
+
+
+### ls
+`ls`				Show all files in the directory.  
+
+`ls -l`				Show files in a list manner.  
+
+`ls -lrt`			List files by date.
+
+`cp`
+
+`mv`
+
+
+### rm
+`rm`				Removes the specified files from the file system. 
+  
+`rm -r`				Removes the specified files including directories.
+
+`mkdir`
+
+`rmdir`
+
+`find . -name 'filename' -print` Find a file
+
+`find . -type f|d|l` file / directory / link
+
+`find . -maxdepth 'n'` Set the limitation on the maximum depth to search. `1` means current folder.
+
+`locate 'filename'` Faster than `find` due to the use of a index database. Use `updatedb` to update the database immediately. Otherwise, it will only be updated daily.
+
+`pwd` 				Show current working directory.
+
+`pushd .` 			Put current directory on stack so you can pop it later. 
+
+`popd` 				Pop the first item on stack, and change to that directory.
+
+
+## File Access
+`diff 'file1' 'file2'` Compare the difference between ‘file1’ and ‘file2’.
+
+`patch` Incremental adding to a file.
+
+`tar -xvzf zip_filename.gz`
+
+`tar -cvzf zip_output_filename.gz file_to_zip.a`
+
+`unzip`
+
+`awk`Stream editor. Example:  `$ echo "col1 col2 col3" | awk '{print $1, $3}'`
+
+`sed`
+
+
+## Devices Control
+`ls /dev` 			List all device modules.
+
+`lscpu` 			List CPU information.
+
+`cat /proc/cat`		List (more detailed) CPU information.
+
+`lshw` 				List Hardware
+
+`lspci -tv`			List all PCI devices. 
+
+`lsusb -tv`			List all USB devices.
+
+`lsblk`
+
+
+## Miscellaneous
+`echo "hello world" > hello.txt`
+
+`cat 'filename'` 	The cat command displays the contents of a file, printing the
+entire contents to the screen without interruption.
+
+`more` | `less`
+
+`grep`
+
+`chmod 'mode' 'file(s)'` Mode can be in the form of numbers like `755` or in a form like `o+w`
+
+`chown -R 'user':'group' 'filename'`
+
+
+## YUM (CentOS / RHEL only)
+### list
+`yum list available` 
+ 
+`yum list installed`  
+
+`yum list kernel`  
+
+`yum list all` 	List installed and available packages  
+
+### group
+`yum groupinstall`
+  
+`yum grouplist`  
+
+`yum groupinfo`  
+
+`yum check-update`   
+
+### repo
+`yum repolist`  
+
+`yum repoinfo`  
+
+`yum repo-pkgs 'my-rpms' install`  
+
+`yum makecache`  
+
+`yum clean all`  
+
+### package management
+`yum install 'package_name'` 
+ 
+`yum localinstall` Install from local rpm file 
+ 
+`yum update` Update all packages on your system  
+
+`yum update 'package_name'`  
+
+`yum reinstall`  
+
+`yum erase`
+
+### others
+`yum history`
+
+`yum-complete-transaction`
+
+`yum history sync` Sync repo when got 'RPMDB altered outside of yum'
+
+## Screen
+`> screen -ls` List all Sessions
+
+`> screen -S 'session_name'` Create a new named session
+
+`> screen -r 'session_name'` Reattach a session
+
+`> screen -wipe` Check and remove deleted sessions 
+
+Shortcuts of Screen:
+
+`Ctrl+a c` Create new window
+
+`Ctrl+a n` Next window
+
+`Ctrl+a p` Previous window
+
+`Ctrl+a 0..9` Switch between windows 0-9
+
+`Ctrl+a [space]` Switch between windows one by one
+
+`Ctrl+a Ctrl+a` Switch between two newest windows
+
+`Ctrl+a w` Show all the windows
+
+`Ctrl+a k` Kill session
+
+`Ctrl+a d` Detach session
+
+`Ctrl+a z` Move process to background. Use fg to return
+
+`Ctrl+a [ESC]` Scroll window. Use [return] to back
+
+`Ctrl+a t` Time. Display current time and system load.
+
+
+## Docker
+`docker version`
+
+`docker info`
+
+`docker search 'image'`
+
+`docker pull 'image'`
+
+`docker images`
+
+`docker ps -l` Show running containers
+
+`docker run -it 'image'`
+
+`ID=$(docker run -t -i -d ubuntu /usr/bin/top -b)`
+
+`sudo docker attach $ID`
+

@@ -1,0 +1,54 @@
+# Wiki Page
+
+Welcome to my wiki page. This page is a collection of useful references and links, which is used by myself as a knowledge database. You also may find it useful for quick reference in your design.
+
+## My Wiki
+- [Linux Commands](wiki_linux.html) 
+- [Raspberry Pi](wiki_raspi.html)
+- [Python Programming](wiki_python.html)
+- [Matlab](wiki_matlab.html) 
+- [MySQL](wiki_mysql.html)
+- [ANSI Table](/homepage/img/ascii-table-landscape.jpg)
+
+## External Links
+### Programming References
+- [Git Version Control Reference](https://git-scm.com/docs)
+- [Python 2.7.11 Reference](https://docs.python.org/2.7/)
+- [Python 3.4.3 Reference](https://docs.python.org/3.4/)
+- [MySQL 5.7 Reference Manual](http://dev.mysql.com/doc/refman/5.7/en/)
+- [SQL Tutorial - W3SCHOOLS](http://www.w3schools.com/sql/default.asp)
+- [PHP Reference Manual](http://php.net/manual/en/)
+- [Arduino Language Reference](https://www.arduino.cc/en/Reference/HomePage)
+- [Processing 3.0 Reference](https://processing.org/reference/)
+
+### LaTex
+- [LaTeX/Document Structure](https://en.wikibooks.org/wiki/LaTeX/Document_Structure)
+- [LaTeX/Bibliography Management](https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management)
+- [LaTeX/Fonts](https://en.wikibooks.org/wiki/LaTeX/Fonts)
+- [LaTeX/Figures](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+- [LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+- [LaTeX/Advanced Mathematics](https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics)
+- [LaTeX/Source Code Listings](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings)
+- [LaTeX/Tables](https://en.wikibooks.org/wiki/LaTeX/Tables)
+- [LaTeX/Algorithms](https://en.wikibooks.org/wiki/LaTeX/Algorithms)
+- [LaTeX:Symbols](http://www.artofproblemsolving.com/wiki/index.php/LaTeX:Symbols)
+
+### Tools
+- [Graphing Calculator (Desmos)](https://www.desmos.com/calculator)
+- [Combinations and Permutations Calculator](http://stattrek.com/online-calculator/combinations-permutations.aspx)
+- [Table Generator for HTML/Markdown/Text/LaTex](http://www.tablesgenerator.com/markdown_tables)  
+- [HTML Color Codes](http://htmlcolorcodes.com/)
+- [HTML Editor](https://html-online.com/editor/)
+
+### Misc
+- [List of TCP and UDP port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
+- [ANSI Escape Code](https://en.wikipedia.org/wiki/ANSI_escape_code)
+- [TortoiseSVN](https://tortoisesvn.net/docs/release/TortoiseSVN_en/)
+- [Linux screen Quick Reference](http://aperiodic.net/screen/quick_reference)
+
+author:={Arman Akbarian}
+keywords:={web page template webpage latex in html writing equations
+table of content automatic reference references formatting markdown
+code highlighting scientific documantation pyhat code2html linux
+command line text based course page design scientists science}
+description:={Web Template for Scientists}

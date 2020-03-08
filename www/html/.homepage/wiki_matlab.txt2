@@ -1,0 +1,37 @@
+# Matlab Programming
+
+## Basics
+`y1 = linspace(-5,5,100)`
+
+`[X,Y] = meshgrid(-8:.5:8);`
+
+`A = reshape(a,3,3)`
+
+Print messages:
+
+    display_str = ['Finished: ', num2str(kk/SAMPLING_NUM * 100), '%'];
+    display(display_str);
+
+## Task Management
+`pause(0.01);`
+
+
+## Plotting
+Wait bar:
+
+	h = waitbar(0,'Initializing waitbar...');
+    perc = kk/SAMPLING_NUM;
+    waitbar(perc, h, sprintf('Dataset Generated: %0.1f%%',perc * 100))
+
+
+## Statistics
+`corr2()`
+
+`hist()`
+
+author:={Arman Akbarian}
+keywords:={web page template webpage latex in html writing equations
+table of content automatic reference references formatting markdown
+code highlighting scientific documantation pyhat code2html linux
+command line text based course page design scientists science}
+description:={Web Template for Scientists}

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Web Template for Scientists" />
+<meta name="keywords" content="web page template webpage latex in html writing equations
+table of content automatic reference references formatting markdown
+code highlighting scientific documantation pyhat code2html linux
+command line text based course page design scientists science" />
+<meta name="author" content="Arman Akbarian" />
+<link rel="stylesheet" type="text/css" href="pagestyle.css" />
+<title>Weather Report and Forecasting with Python</title>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+$(function() {
+		$('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+			$('html,body').animate({
+scrollTop: target.offset().top
+}, 500);
+			return false;
+			}
+			}
+			});
+		});
+
+</script>
+
+
+</head>
+
+<body>
+<div class="page">
+  <div class="page2">
+     <div style="width:100%;height:1px;font-family: Tahoma; font-size: 1pt;"></div>
+     <div  class ="header">
+		
+	     <div class="title">
+
+			Xiaotian Dai
+			<div class="subtitle">UNIVERSITY OF YORK <br> COMPUTER SCIENCE DEPT. </div>
+	</div> <!-- End of title -->
+		<div class="sidebar">
+         	<div class="sider">
+               <p><a href="index.html">Home <img src="img/home.svg" width="11px" /></a>
+<a href="research.html">Research</a>
+<a href="publication.html">Publications</a>
+<a target="_blank" href="https://www.cs.york.ac.uk/rts/">RTS Group <img style="margin-left:1px;" src="img/external-link.svg" alt="" align="bottom" /></a>
+<a href="contact.html">Contact</a>
+<a href="cv.html">CV</a></p>
+
+<hr />
+
+<p><a href="blogs.html">BLOGS</a>
+<a href="projs.html">PROJECTS</a>
+<a href="wiki.html">WIKI</a>
+<a href="about.html">ABOUT</a></p>
+
+             </div>
+         </div> <!--End of Sidebar -->
+
+
+     </div> <!-- end header -->
+	
+     <!--This line is for future use -->   <div style="text-align:center; padding-top:10px; padding-bottom:10px;"></div>
+	      
+     <!--This line is for compatibility issues --> <div style="width:100%;height:5px;font-family: Tahoma; font-size: 1pt;"></div>
+     <!--in class page2 -->
+     <div class="postandside">
+		        <div class="content">
+            <div class="post">
+              <h1>Weather Report and Forecasting with Python</h1>
+
+<p>OpenWeatherMap.org is a free weather forecast website, where you can get up-to-date weather reports. One nice thing about this website is that it does provide weather APIs which you can use to fetch current weather data, and use them to build your own weather-forecasting program. In this post, I will describe how to use python to access the weather APIs and fetch the current weather information.</p>
+
+<p>The full documentation of the APIs can be find here: <a href="http://openweathermap.org/api">http://openweathermap.org/api</a>. To access the APIs, you have to register a new account to obtain an API key. There are two categories of APIs that can be used for free: Current and 5 day forecast. The Current API provides up-to-date weather data, which includes current temperature, humidity, wind, etc. The 5 day forecast gives information of the weather data for the next 5 days in every 3 hours. So you will get 40 forecasts in total. The usage of the APIs is simple, just send request to specific URLs, and get data in return given in the form of json or XML.</p>
+
+<p>Here I give an example of how to use the Current API:</p>
+
+<p>a) Fetch data from the URL provided by the document:</p>
+
+<pre>
+<font color="0000ff"><strong># this is where you should put your OpenWeatherMap API key
+</strong></font>
+<font color="0000ff"><strong># get your own key from http://openweathermap.org/
+</strong></font>
+<font color="#2040a0">API_KEY</font> <font color="4444FF">=</font> <font color="#008000">&quot;5eb19937b8ba9aa2029fe7e290b8d799&quot;</font>
+
+<font color="0000ff"><strong># this is the city you want to enquiry
+</strong></font>
+<font color="#2040a0">CITY_NAME</font> <font color="4444FF">=</font> <font color="#008000">&quot;York,uk&quot;</font>
+
+<font color="0000ff"><strong># get weather data from weather.com
+</strong></font>
+<font color="#2040a0">try</font><font color="4444FF">:</font>
+    <font color="#2040a0">f</font> <font color="4444FF">=</font> <font color="#2040a0">urllib2</font>.<font color="#2040a0">urlopen</font><font color="4444FF">(</font>'<font color="#2040a0">http</font><font color="4444FF">:</font>//<font color="#2040a0">api</font>.<font color="#2040a0">openweathermap</font>.<font color="#2040a0">org</font>/<font color="#2040a0">data</font>/<font color="#FF0000">2.5</font>/<font color="#2040a0">weather</font>?<font color="#2040a0">q</font><font color="4444FF">=</font>' \
+                    <font color="4444FF">+</font> <font color="#2040a0">CITY_NAME</font> <font color="4444FF">+</font> '<font color="4444FF">&amp;</font><font color="#2040a0">units</font><font color="4444FF">=</font><font color="#2040a0">metric</font>' <font color="4444FF">+</font> '<font color="4444FF">&amp;</font><font color="#2040a0">APPID</font><font color="4444FF">=</font>' <font color="4444FF">+</font>  <font color="#2040a0">API_KEY</font><font color="4444FF">)</font>
+    <font color="#2040a0">respond_raw</font> <font color="4444FF">=</font> <font color="#2040a0">f</font>.<font color="#2040a0">read</font><font color="4444FF">(</font><font color="4444FF">)</font>
+<font color="#2040a0">except</font><font color="4444FF">:</font>
+        <font color="#2040a0">print</font> '<font color="#2040a0">Execption</font><font color="4444FF">:</font> <font color="#2040a0">URL</font> <font color="#2040a0">is</font> <font color="#2040a0">not</font> <font color="#2040a0">correct</font><font color="4444FF">!</font>'
+        <font color="#2040a0">raise</font>
+</pre>
+
+<p></p>
+
+<p>b) The default data format is json, we can unpack it with the json library:</p>
+
+<pre>
+<font color="0000ff"><strong># unpack json package into python dictionary
+</strong></font>
+<font color="#2040a0">weather_dict</font> <font color="4444FF">=</font> <font color="#2040a0">json</font>.<font color="#2040a0">loads</font><font color="4444FF">(</font><font color="#2040a0">respond_raw</font><font color="4444FF">)</font>
+
+<font color="0000ff"><strong># print raw data with pprint
+</strong></font>
+<font color="#2040a0">pp</font>.<font color="#2040a0">pprint</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">)</font>
+</pre>
+
+<p></p>
+
+<p>what you will get is something like this:</p>
+
+<pre>
+<font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">base</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'<font color="#2040a0">cmc</font> <font color="#2040a0">stations</font>',
+    <font color="#2040a0">u</font>'<font color="#2040a0">clouds</font>'<font color="4444FF">:</font> <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">all</font>'<font color="4444FF">:</font> <font color="#FF0000">36</font><font color="4444FF"><strong>}</strong></font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">cod</font>'<font color="4444FF">:</font> <font color="#FF0000">200</font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">coord</font>'<font color="4444FF">:</font> <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">lat</font>'<font color="4444FF">:</font> <font color="#FF0000">53.96</font>, <font color="#2040a0">u</font>'<font color="#2040a0">lon</font>'<font color="4444FF">:</font> <font color="4444FF">-</font><font color="#FF0000">1.08</font><font color="4444FF"><strong>}</strong></font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">dt</font>'<font color="4444FF">:</font> <font color="#FF0000">1447431162</font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">id</font>'<font color="4444FF">:</font> <font color="#FF0000">2633352</font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">main</font>'<font color="4444FF">:</font> <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">grnd_level</font>'<font color="4444FF">:</font> <font color="#FF0000">1016.58</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">humidity</font>'<font color="4444FF">:</font> <font color="#FF0000">89</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">pressure</font>'<font color="4444FF">:</font> <font color="#FF0000">1016.58</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">sea_level</font>'<font color="4444FF">:</font> <font color="#FF0000">1027.66</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">temp</font>'<font color="4444FF">:</font> <font color="#FF0000">6.99</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">temp_max</font>'<font color="4444FF">:</font> <font color="#FF0000">6.99</font>,
+                 <font color="#2040a0">u</font>'<font color="#2040a0">temp_min</font>'<font color="4444FF">:</font> <font color="#FF0000">6.99</font><font color="4444FF"><strong>}</strong></font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">name</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'<font color="#2040a0">York</font>',
+    <font color="#2040a0">u</font>'<font color="#2040a0">sys</font>'<font color="4444FF">:</font> <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">country</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'<font color="#2040a0">GB</font>',
+                <font color="#2040a0">u</font>'<font color="#2040a0">message</font>'<font color="4444FF">:</font> <font color="#FF0000">0.0106</font>,
+                <font color="#2040a0">u</font>'<font color="#2040a0">sunrise</font>'<font color="4444FF">:</font> <font color="#FF0000">1447399715</font>,
+                <font color="#2040a0">u</font>'<font color="#2040a0">sunset</font>'<font color="4444FF">:</font> <font color="#FF0000">1447430881</font><font color="4444FF"><strong>}</strong></font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">weather</font>'<font color="4444FF">:</font> <font color="4444FF">[</font>   <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">description</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'<font color="#2040a0">scattered</font> <font color="#2040a0">clouds</font>',
+                        <font color="#2040a0">u</font>'<font color="#2040a0">icon</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'03<font color="#2040a0">n</font>',
+                        <font color="#2040a0">u</font>'<font color="#2040a0">id</font>'<font color="4444FF">:</font> <font color="#FF0000">802</font>,
+                        <font color="#2040a0">u</font>'<font color="#2040a0">main</font>'<font color="4444FF">:</font> <font color="#2040a0">u</font>'<font color="#2040a0">Clouds</font>'<font color="4444FF"><strong>}</strong></font><font color="4444FF">]</font>,
+    <font color="#2040a0">u</font>'<font color="#2040a0">wind</font>'<font color="4444FF">:</font> <font color="4444FF"><strong>{</strong></font>   <font color="#2040a0">u</font>'<font color="#2040a0">deg</font>'<font color="4444FF">:</font> <font color="#FF0000">257.001</font>, <font color="#2040a0">u</font>'<font color="#2040a0">speed</font>'<font color="4444FF">:</font> <font color="#FF0000">10.62</font><font color="4444FF"><strong>}</strong></font><font color="4444FF"><strong>}</strong></font>
+</pre>
+
+<p></p>
+
+<p>c) Once you have the data stored in a python dictionary, you can generate something more readable and customized:</p>
+
+<pre>
+<font color="0000ff"><strong># print human-readable weather message
+</strong></font>
+<font color="#2040a0">print</font><font color="4444FF">(</font>'\<font color="#2040a0">n</font>\<font color="#2040a0">n</font>' <font color="4444FF">+</font> <font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">name</font>'<font color="4444FF">]</font> <font color="4444FF">+</font> ' <font color="#2040a0">is</font> ' <font color="4444FF">+</font> \
+      <font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">weather</font>'<font color="4444FF">]</font><font color="4444FF">[</font><font color="#FF0000">0</font><font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">description</font>'<font color="4444FF">]</font> <font color="4444FF">+</font> \
+      ', <font color="#2040a0">temperature</font><font color="4444FF">:</font> ' <font color="4444FF">+</font> <font color="#2040a0">str</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">main</font>'<font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">temp</font>'<font color="4444FF">]</font><font color="4444FF">)</font> <font color="4444FF">+</font> \
+      ', <font color="#2040a0">humidity</font><font color="4444FF">:</font> ' <font color="4444FF">+</font> <font color="#2040a0">str</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">main</font>'<font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">humidity</font>'<font color="4444FF">]</font><font color="4444FF">)</font> <font color="4444FF">+</font> '<font color="4444FF">%</font>.' <font color="4444FF">)</font>
+</pre>
+
+<p></p>
+
+<p>which produces:</p>
+
+<pre><code>York is scattered clouds, temperature: 6.99, humidity: 89%.
+</code></pre>
+
+<p>Accessing 5 days forecast is very similar. But personally I think that API is not very useful, because it packs every 3 hour weather data in a single entity. This means in order to give a day-wide forecast, you have to process the data a little bit (day info is consisted of 8 entities) to find out the maximum and minimum temperatures. Also if you get more than one forecasts spreading in different times of the day (e.g., sunshine between 13:00-18:00 but raining between 10:00-13:00), you have to consider how to fairly describe the weather on that particular day . Due to these issues, I didn't spent more efforts on that but instead switch to other weather providers. If you are more interested in forecasting, just have a try and let me know if it works.</p>
+
+<h3>Appendix. Full Python Code</h3>
+
+<p>weather_from_openweather.py</p>
+
+<pre>
+<font color="0000ff"><strong>#!/usr/bin/python
+</strong></font>
+
+<font color="#2040a0">import</font> <font color="#2040a0">os</font>
+<font color="#2040a0">import</font> <font color="#2040a0">urllib2</font> 
+<font color="#2040a0">import</font> <font color="#2040a0">json</font>
+<font color="#2040a0">import</font> <font color="#2040a0">pprint</font>
+
+<font color="#2040a0">pp</font> <font color="4444FF">=</font> <font color="#2040a0">pprint</font>.<font color="#2040a0">PrettyPrinter</font><font color="4444FF">(</font><font color="#2040a0">indent</font><font color="4444FF">=</font><font color="#FF0000">4</font><font color="4444FF">)</font>
+
+<font color="0000ff"><strong># this is where you should put your OpenWeatherMap API key
+</strong></font>
+<font color="0000ff"><strong># get your own key from http://openweathermap.org/
+</strong></font>
+<font color="#2040a0">API_KEY</font> <font color="4444FF">=</font> <font color="#008000">&quot;5eb19937b8ba9aa2029fe7e290b8d799&quot;</font>
+
+<font color="0000ff"><strong># this is the city you want to enquiry
+</strong></font>
+<font color="#2040a0">CITY_NAME</font> <font color="4444FF">=</font> <font color="#008000">&quot;York,uk&quot;</font>
+
+<font color="0000ff"><strong># get weather data from weather.com
+</strong></font>
+<font color="#2040a0">try</font><font color="4444FF">:</font>
+    <font color="#2040a0">f</font> <font color="4444FF">=</font> <font color="#2040a0">urllib2</font>.<font color="#2040a0">urlopen</font><font color="4444FF">(</font>'<font color="#2040a0">http</font><font color="4444FF">:</font>//<font color="#2040a0">api</font>.<font color="#2040a0">openweathermap</font>.<font color="#2040a0">org</font>/<font color="#2040a0">data</font>/<font color="#FF0000">2.5</font>/<font color="#2040a0">weather</font>?<font color="#2040a0">q</font><font color="4444FF">=</font>' \
+                    <font color="4444FF">+</font> <font color="#2040a0">CITY_NAME</font> <font color="4444FF">+</font> '<font color="4444FF">&amp;</font><font color="#2040a0">units</font><font color="4444FF">=</font><font color="#2040a0">metric</font>' <font color="4444FF">+</font> '<font color="4444FF">&amp;</font><font color="#2040a0">APPID</font><font color="4444FF">=</font>' <font color="4444FF">+</font>  <font color="#2040a0">API_KEY</font><font color="4444FF">)</font>
+    <font color="#2040a0">respond_raw</font> <font color="4444FF">=</font> <font color="#2040a0">f</font>.<font color="#2040a0">read</font><font color="4444FF">(</font><font color="4444FF">)</font>
+<font color="#2040a0">except</font><font color="4444FF">:</font>
+        <font color="#2040a0">print</font> '<font color="#2040a0">Execption</font><font color="4444FF">:</font> <font color="#2040a0">URL</font> <font color="#2040a0">is</font> <font color="#2040a0">not</font> <font color="#2040a0">correct</font><font color="4444FF">!</font>'
+        <font color="#2040a0">raise</font>
+
+<font color="0000ff"><strong># unpack json package into python dictionary
+</strong></font>
+<font color="#2040a0">weather_dict</font> <font color="4444FF">=</font> <font color="#2040a0">json</font>.<font color="#2040a0">loads</font><font color="4444FF">(</font><font color="#2040a0">respond_raw</font><font color="4444FF">)</font>
+
+<font color="0000ff"><strong># print raw data with pprint
+</strong></font>
+<font color="#2040a0">pp</font>.<font color="#2040a0">pprint</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">)</font>
+
+<font color="0000ff"><strong># print human-readable weather message
+</strong></font>
+<font color="#2040a0">print</font><font color="4444FF">(</font>'\<font color="#2040a0">n</font>\<font color="#2040a0">n</font>' <font color="4444FF">+</font> <font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">name</font>'<font color="4444FF">]</font> <font color="4444FF">+</font> ' <font color="#2040a0">is</font> ' <font color="4444FF">+</font> \
+      <font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">weather</font>'<font color="4444FF">]</font><font color="4444FF">[</font><font color="#FF0000">0</font><font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">description</font>'<font color="4444FF">]</font> <font color="4444FF">+</font> \
+      ', <font color="#2040a0">temperature</font><font color="4444FF">:</font> ' <font color="4444FF">+</font> <font color="#2040a0">str</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">main</font>'<font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">temp</font>'<font color="4444FF">]</font><font color="4444FF">)</font> <font color="4444FF">+</font> \
+      ', <font color="#2040a0">humidity</font><font color="4444FF">:</font> ' <font color="4444FF">+</font> <font color="#2040a0">str</font><font color="4444FF">(</font><font color="#2040a0">weather_dict</font><font color="4444FF">[</font>'<font color="#2040a0">main</font>'<font color="4444FF">]</font><font color="4444FF">[</font>'<font color="#2040a0">humidity</font>'<font color="4444FF">]</font><font color="4444FF">)</font> <font color="4444FF">+</font> '<font color="4444FF">%</font>.' <font color="4444FF">)</font>
+</pre>
+
+<p>
+
+</p>
+
+		      <div style="clear: both;"></div>
+	         </div>
+		      <hr />
+	         <div class ="date">last update: Tue Apr 26, 2016</div>
+	    <div class="footer">
+           <p>| <a href="index.html">Home</a> | Copyright  (C) 2016 Xiaotian Dai. | This Website is powered by Markdown, MathJax and Apache. | <a href="../../cgi-bin/info.py">Status</a> | </p>
+
+      </div>  
+	    <div style="clear: both;">&nbsp;</div>
+        </div> <!-- end content -->
+	<!-- in class postandside -->
+
+                 <!--in class postandside-->   
+         <!--this line is for compatibility issues --><div style="clear: both;">&#160;</div> <!--Displacement --> 
+     </div> <!--End of post and side -->
+
+     <!-- in class page2 -->
+     <div style="clear: both;">&nbsp;</div>
+  </div> <!--End of Page2 -->
+     <div style="clear: both;">&nbsp;</div>
+
+</div> <!-- End of page -->
+<!--this is end of the file -->
+<!-- ~~~ This content is generated using sg web template ~~-->
+<!-- ~~~ For more information visit: http://laplace.physics.ubc.ca/People/arman/sg ~~ -->
+</body>
+</html>

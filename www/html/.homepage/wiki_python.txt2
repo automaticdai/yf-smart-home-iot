@@ -1,0 +1,87 @@
+# Python Basis
+[TOC]
+
+## Data types
+### Array
+	>> myList=[1,2,3,4,5,6]
+	
+	>> myList[3:]
+	[4,5,6]
+	
+	>> myList[:-2]
+	[1,2,3,4]
+	
+### Dictionaries
+	>> dict = {'Name': 'Alan', 'Job': 'Professor'}
+	
+	>> dict['Name']
+	'Alan'
+
+### Strings
+Convert a hex number to binary string: 
+	>> a = 0x56
+	>> '{0:b}'.format(a)
+	'1010110'
+
+### Tuples
+
+
+## Statements and Syntax
+
+
+## Functions
+
+
+## Modules
+
+
+## Classes
+
+
+## Exceptions
+
+## Threads
+### Thread Objects
+`import thread`
+
+### Timer Objects
+	def hello():
+	    print "hello, world"
+	
+	t = Timer(30.0, hello)
+	t.start() # after 30 seconds, "hello, world" will be printed
+
+
+## MySQL-python
+### Install Library
+	sudo yum install MySQL-python
+
+### Database Connection
+	#!/usr/bin/python
+	import MySQLdb
+
+	# connect
+	db = MySQLdb.connect(host="localhost", user="appuser", passwd="",
+	db="onco")
+	
+	cursor = db.cursor()
+
+### Database Request
+	# execute SQL select statement
+	cursor.execute("SELECT * FROM LOCATION")
+	
+	# commit your changes
+	db.commit()
+	
+	# get the number of rows in the resultset
+	numrows = int(cursor.rowcount)
+	
+	# get and display one row at a time.
+	for x in range(0,numrows):
+	    row = cursor.fetchone()
+	    print row[0], "-->", row[1]author:={Arman Akbarian}
+keywords:={web page template webpage latex in html writing equations
+table of content automatic reference references formatting markdown
+code highlighting scientific documantation pyhat code2html linux
+command line text based course page design scientists science}
+description:={Web Template for Scientists}
