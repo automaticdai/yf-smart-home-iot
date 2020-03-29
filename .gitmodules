@@ -1,0 +1,6 @@
+[submodule "devices/rpi-environmental-sensing"]
+	path = devices/rpi-environmental-sensing
+	url = https://github.com/automaticdai/rpi-environmental-sensing
+[submodule "devices/esp32-htu21d-mqtt"]
+	path = devices/esp32-htu21d-mqtt
+	url = https://github.com/automaticdai/esp32-htu21d-mqtt

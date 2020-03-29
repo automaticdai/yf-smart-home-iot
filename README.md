@@ -2,4 +2,4 @@
 
 An IoT system for home automation.
 
-![](/doc/smart-home-arch.png)
+![](/doc/smart-home-arch.jpeg)
