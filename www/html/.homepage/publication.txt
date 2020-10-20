@@ -1,5 +1,0 @@
-# Publications
-
-1. X. Dai, A. Burns, **Trend Analysis of Worst-case Execution Times in Adaptive Real-time Scheduling**, (in progress), 2016
-2. X. Dai, **The Role of Flexible Models in Adaptive Real-time Scheduling**, Qualifying Dissertation (University of York), 2015
-3. X. Dai, **Vision-based Localization and Tracking of a UGV using a Quadcopter**, Master Thesis (University of Sheffield), 2014

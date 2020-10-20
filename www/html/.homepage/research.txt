@@ -1,4 +1,0 @@
-# Research
-Real-time Scheduling theory has been widely developed over last 40 years, after the first published work of Liu and Layland in 1973. Before that, real-times systems were designed with cyclic executives, which is in a ad-hoc manner and very difficult to maintain. In general, the theory is consist of task modelling, scheduling policy and schedulability test. Some other issues, e.g., resource management, response time analysis, worst-case execution time analysis, are also involved in the design of real-time systems. Here is a big picture of the real-time theory, based on my knowledge so far:
-
-![](./img/Research_Realtime-Scheduling.jpg)

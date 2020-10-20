@@ -1,3 +1,0 @@
-# Projects
-
-- [Python Weather Forecast](proj_weather_report.html)
