@@ -7,3 +7,10 @@ An IoT system for home automation. The system architecture is shown below:
 - Devices: IoT node that collects data
 - Servers: server that processes data
 - Clients: clients (browser, phone, etc.) that displays data
+
+
+
+## Todo
+
+- [ ] RFID door control
+- [ ] CCTV monitoring
